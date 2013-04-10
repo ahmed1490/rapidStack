@@ -1,0 +1,31 @@
+3/20/2013 19:27:51.133 [INFO] components.FilesPage Files dragged to window
+3/20/2013 19:27:51.135 [INFO] components.FilesPage Files dragged to window
+3/20/2013 19:27:51.135 [INFO] components.FilesPage Files dragged to window
+3/20/2013 19:27:51.135 [INFO] components.FilesPage Files dragged to window
+3/20/2013 19:27:51.135 [INFO] components.FilesPage Files dragged to window
+3/20/2013 19:27:51.136 [INFO] components.FilesPage Files dragged to window
+3/20/2013 19:27:51.651 [INFO] components.FilesPage Files dropped on window
+3/20/2013 19:27:51.761 [INFO] components.FilesPage Added file: /Users/Ahmed/browserstack/integrations/BS-plugin-dreamweaver/source/browserstack_icon_16.png to package
+3/20/2013 19:27:51.786 [INFO] components.FilesPage Added file: /Users/Ahmed/browserstack/integrations/BS-plugin-dreamweaver/source/browserstack.mxi to package
+3/20/2013 19:27:51.818 [INFO] components.FilesPage Added file: /Users/Ahmed/browserstack/integrations/BS-plugin-dreamweaver/source/CodeSigning.p12 to package
+3/20/2013 19:27:51.862 [INFO] components.FilesPage Added file: /Users/Ahmed/browserstack/integrations/BS-plugin-dreamweaver/source/Test on Browserstack.htm to package
+3/20/2013 19:27:51.913 [INFO] components.FilesPage Added file: /Users/Ahmed/browserstack/integrations/BS-plugin-dreamweaver/source/Test on Browserstack.js to package
+3/20/2013 19:28:05.909 [INFO] Packager Produced MXI file:
+ <macromedia-extension id="com.browserstack.BS" name="BS" version="1.0.0">
+  <description><![CDATA[aa]]></description>
+  <license-agreement><![CDATA[test lisence agreement]]></license-agreement>
+  <author name="BrowserStack"/>
+  <products>
+    <product version="12.0" primary="true" name="Fireworks"/>
+    <product version="12.0" primary="true" name="Dreamweaver"/>
+  </products>
+  <files>
+    <file source="browserstack_icon_16.png" destination="$fireworks/Configuration/Libraries" products="Fireworks"/>
+    <file source="browserstack.mxi" destination="$userhomefolder/Desktop"/>
+    <file source="Test on Browserstack.htm" destination="$userhomefolder/Desktop" products="Dreamweaver"/>
+    <file source="Test on Browserstack.js" destination="$userhomefolder/Desktop"/>
+  </files>
+</macromedia-extension>
+3/20/2013 19:28:05.998 [DEBUG] com.adobe.packager.ucf.JarTask Task starting...
+3/20/2013 19:28:16.671 [DEBUG] com.adobe.packager.ucf.JarTask Task completed
+3/20/2013 19:28:16.672 [INFO] Packager Packaging succeeded

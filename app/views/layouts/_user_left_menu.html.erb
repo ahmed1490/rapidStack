@@ -1,0 +1,18 @@
+<div class="sidebar-nav" style="position:fixed; top:160px;">
+	<div class="well" style="width:300px; padding: 8px 0;">
+		<ul class="nav nav-list"> 
+		  <li class="nav-header">Welcome</li>        
+		  <li id="nav_home"><a href="/"><i class="icon-home"></i> Home</a></li>
+		  <li id="nav_upload"><a href="/upload"><i class="  icon-upload"></i> Upload</a></li>
+          <li id="nav_files"><a href="/files"><i class=" icon-eye-open"></i> Files</a></li>
+		  <li id="nav_account"><a href="/account"><i class=" icon-pencil"></i> Edit Account</a></li>
+		  <li id="nav_users"><a href="/users"><i class=" icon-star"></i> Users</a></li>
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#nav_'+currentNav).addClass('active');
+	});
+</script>

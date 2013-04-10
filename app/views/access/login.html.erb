@@ -1,0 +1,28 @@
+<!-- SignUp form-->
+<div id="signInForm" class="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin: 20px auto; border: 1px solid #cecece;width:600px;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">
+    	Sign In
+    </h3>
+  </div>
+
+  <% form_tag(:controller => :access, :action => :attempt_login) do %>
+  	<div class="modal-body">
+
+	    <div class="span3">
+
+	        <label>Login <i>[email]</i></label>
+	         <%= email_field_tag :email %>
+	        <label>Password</label>
+	         <%= password_field_tag :password %>
+	        <div class="clearfix"></div>
+	       
+	    </div>
+
+	  </div>
+	  <div class="modal-footer">
+	    <input type="submit" class="btn btn-primary" value="Enter" />
+	  </div>
+   <% end %>
+</div>

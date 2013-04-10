@@ -1,0 +1,62 @@
+<% content_for(:headjs) do %>
+<% #javascript_include_tag :defaults %>
+<% end %>
+
+<div class="well" style="width:800px; margin-left:450px;">
+
+	<% if @users.size ==1  %>
+		<h4> User : <%= @users[0].email %> </h4>
+	<% else %>
+		<h4>Users Registered </h4> <hr/>
+	<% end %>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+         	<th>Name</th>
+					<th>Email</th>
+					<th>Password</th>
+					<th>User Type</th>
+					<!--th>Action</th-->
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @users.each do |user| %>
+					<tr>
+						<td><%= user.id%></td>
+						<td><%= user.name%></td>
+						<td><%= user.email%></td>
+						<td><%= user.password%></td>
+						<td><%= user.usertype==0?'Admin':'User' %></td>
+	          <!-- td>
+	              <% link_to edit_user_path(user.id) do %>
+	              	<i class="icon-pencil"></i>
+	              <% end %>
+	              <!-- <% button_to user_path(user.id), :method => :delete, :confirm => "Are you sure?" do %>
+	              	<i class="icon-remove"></i>
+	              <% end %> -->
+
+	              <!--a href="#deleteConfirm" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+	          </td -->
+					</tr>
+				<% end %>
+
+      </tbody>
+    </table>
+</div>
+
+<div class="modal small hide fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="deleteConfirmLabel">Delete Confirmation</h3>
+    </div>
+    <div class="modal-body">
+        <p class="error-text">Are you sure you want to delete the user?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+    </div>
+</div>

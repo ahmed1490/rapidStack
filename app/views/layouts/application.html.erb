@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rapidstack</title>
+  <%= javascript_include_tag 'jquery', 'jquery_ujs', 'bootstrap', 'application' %>
+  <%= yield(:headjs) %>
+  <%= stylesheet_link_tag 'bootstrap' %>
+  <%= yield(:headcss) -%>
+  <%= csrf_meta_tag %>
+</head>
+<body style="padding:60px 20px;">
+
+	<% case session[:usertype]
+		when "admin" %>
+		<%= render (:partial => "layouts/user_left_menu" ) %>
+	<%  when "user" %>
+		<%= render (:partial => "layouts/user_left_menu" ) %>
+	<% end %>
+
+	<%= render (:partial => "layouts/topbar" ) %>
+
+	<%= yield %>
+
+</body>
+</html>

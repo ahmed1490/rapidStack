@@ -1,0 +1,23 @@
+
+Ports (General applications)
+80 : HTTP [ Generally Port 80 is filtered to allow only HTTP ]
+443 : HTTPS [ HTTPS data is encrypted to something can be sent inside https ]
+22 : SSH [On port 22 generally protocols are not checked]
+
+Server has : 
+VNC Terminal : Port 22 
+Flash Policy Server : Port 443
+Port 80 was tried but later changed, coz statistically Traffic check (non-http traffics are filtered) on 80 are done more than on port 22.
+
+BS uses flash to communicate to VNC Terminal on Server with its own protocol "Flash Socket Server (chk)" which runs on 
+Flash Policy Server is needed to validate and allow incoming Flash connection
+
+Kaazing [unstable] is used as proxy to convert diff (including flash service-chk) backend services to normal HTTP/(S) traffic. We use Https.
+But this seems to not work ever time.
+
+Research
+Socket.io can use socket for VNC on some port. 
+noVNC provides js VNC Client for use of sockets. It uses socket.io internally
+Blocks
+Firewall : eg: check for only http and https on 80 and 443 respectively
+Proxies : Squid?

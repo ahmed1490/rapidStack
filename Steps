@@ -1,0 +1,49 @@
+> rails new rapidstack -d mysql
+> mysql -u root -p
+mysql> SHOW DATABASES
+mysql> CREATE DATABASE rapid_stack;
+mysql> SHOW GRANTS
+mysql> GRANT ALL PRIVILEGES ON rapid_stack.* TO 'rs_app'@'localhost' IDENTIFIED BY 'password';
+mysql> SHOW GRANTS FOR 'rs_app'@'localhost';
+mysql> exit
+> mysql -u rs_app -p rapid_stack
+
+- Update config/database.yml
+> rake db:schema:dump
+
+> rails generate migration DoNothingYet (no use)
+OR better below
+> rails generate model User
+
+- Edit the migration file (inside migrate/123_create_users.rb) for fields and constraints
+> rake db:migrate RAILS_ENV=development //dev is default updates schema.rb
+
+>mysql -u rs_app -p rapid_stack
+mysql> SHOW tables
+mysql> SHOW FIELDS FROM users
+mysql> SELECT * from users
+
+//To revert all migration
+> rake db:migrate VERSION=0 // now use 123 number of migrate/123 and below would be migrated 
+//others rake commands
+> rake db:migrate:up VERSION=20130405190812
+> rake db:migrate:redo VERSION=123// down called for migration files(inside db/migrate/) n then up called, If no version specified it redoes the last migration
+> rake db:reset
+> rake -T //show all tasks
+> rake -T db //see just database tasks
+> rake -D db:migrate //describe task
+
+// try some migration methods
+- tip: execute("striaght sql statements")
+//try some edition of table
+> rails generate migration ALTER_USERS
+- edit the migration file 123_alter_users
+> rake db:migrate
+> rake db:migrate:down VERSION=123 //version is reqd
+
+//check routes configured
+> rake routes
+
+
+//delete not workin
+//root not wrking

@@ -1,0 +1,16 @@
+$('.alert').remove();
+$('.navbar').append(
+		<% flash.each do |name, msg| %>
+		  <% if msg.is_a?(String) %>
+		    '<div class="alert alert-<%= name == :notice ? "success" : "error" %>" style="text-align:center;">'+
+		      '<a class="close" data-dismiss="alert">&#215;</a>'+
+		      '<b><%= content_tag :div, msg, :id => "flash_#{name}" %></b>'+
+		    '</div>'
+		  <% end %>
+		<% end %>
+	);
+setTimeout(function(){
+	$('.alert').fadeOut();
+},2000);
+
+		    

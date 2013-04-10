@@ -1,0 +1,25 @@
+Quest:
+- How to update table schema after rake db:migrate is done
+> rake db:migrate version=(version_no)
+> rake db:reset
+
+- How to merge original migrations and alter migrations
+
+
+Users
+	- id
+	- name
+	- email
+	- password
+	- salt
+	- usertype (admin, free, premium1, premium2 etc)
+	- timestamps
+
+FileInfo
+	- id
+	- name
+	- description
+	- url
+	- path
+	- user_id
+	- timestamp

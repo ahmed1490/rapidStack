@@ -1,0 +1,56 @@
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container"><!-- Collapsable nav bar -->
+	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </a>
+	 
+	      <!-- Your site name for the upper left corner of the site -->
+	      <a class="brand" href="/"><b>Rapid</b>Stack</a>
+	 
+	      <!-- Start of the nav bar content -->
+	      <div class="nav-collapse"><!-- Other nav bar content -->
+	        <!--i>Your personal space on cloud</i-->
+	 
+	        <!-- The drop down menu -->
+	        <ul class="nav pull-right">
+	        <% if session[:user_id] != nil %>
+	        <li>
+	        	<a> Hello <b><i> <%= session[:name] %> </i></b> </a>
+	        </li>
+	        <li class="divider-vertical"></li>
+	        <li>
+	        	<a href="/access/logout"> Logout </a>
+	        </li>
+	        <% else %>
+	          <li><a href="#signUpForm" role="button" data-toggle="modal">Sign Up</a></li>
+	          <li class="divider-vertical"></li>
+	          <li class="dropdown">
+	            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+	            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+	              <!-- Login form here -->
+	              	<%= render (:partial => "access/login") %>
+
+	            </div>
+	          </li>
+	        <% end %>
+	        </ul>
+	      </div>
+	    </div>
+	  </div>
+
+	  	<% flash.each do |name, msg| %>
+		  <% if msg.is_a?(String) %>
+		    <div class="alert alert-<%= name == :notice ? "success" : "error" %>" style="text-align:center;">
+		      <a class="close" data-dismiss="alert">&#215;</a>
+		      <b><%= content_tag :div, msg, :id => "flash_#{name}" %></b>
+		    </div>
+		  <% end %>
+		<% end %>
+
+	</div>
+
+
+	<%= render (:partial => "users/signup", :locals => { :showSignUp => false } ) %>

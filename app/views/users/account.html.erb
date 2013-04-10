@@ -1,0 +1,62 @@
+<!-- SignUp form-->
+<div id="editAccountForm" class="modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:20%;">
+  <div class="modal-header">
+    <h3 id="myModalLabel">
+    		Edit User :
+    </h3>
+  </div>
+
+
+  <% form_for :user, :url => {:controller => :users ,:action => :update}, :remote => true do |f| %>
+  	<div class="modal-body">
+
+	    <div class="span7">
+	       
+	        <label>First Name</label>
+	        <%= f.text_field :name, :class => 'span3' %>
+
+	        <label>Email Address <i>[Username]</i></label>
+	         <%= f.email_field :email, :class => 'span3' %>
+	        <label>Password</label>
+	         <%= f.password_field :password, :class => 'span3' %>
+	        
+	        <div class="clearfix"></div>
+	       
+	    </div>
+
+	  </div>
+	  <div class="modal-footer">
+	    <input type="submit" class="btn btn-primary" value="Update"  />
+	  </div>
+   <% end %>
+</div>
+
+
+<script type="text/javascript">
+    currentNav = "account";
+	$('form').bind('ajax:beforeSend', function(a) {  
+		$('.alert').remove();
+		var error = false;
+	    if( $('#editAccountForm #user_name').val().length<=3 ){
+	    	$('#editAccountForm #user_name').after('<span class="alert alert-error" style="background:none;border:none;">At least 4 chars required!</span>');
+	    	error = true;
+	    }
+	    if( $('#editAccountForm #user_password').val().length<=4 ){
+	    	$('#editAccountForm #user_password').after('<span class="alert alert-error" style="background:none;border:none;">At least 5 chars required!</span>');
+	    	error = true;
+	    }
+	    return !error;
+	}); 
+    /*$('#editAccountForm form').submit(function() {  
+	    var valuesToSubmit = $(this).serialize();
+	    $.ajax({
+	        url: $(this).attr('action'), 
+	        data: valuesToSubmit,
+	        dataType: "JSON" 
+	    }).success(function(json){
+	    	console.log(json)
+	        //act on result.
+	    });
+	    return false; // prevents normal behaviour
+	});*/
+</script>

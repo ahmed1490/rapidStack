@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 		if @user.save
 			redirect_to "/signup_success"
 		else
-			render :new
+			render :signup
 		end
 	end
 
@@ -39,12 +39,10 @@ class UsersController < ApplicationController
 		@user.email = params[:user][:email]
 		@user.password = params[:user][:password]
 
-		if @user.save
-
 			#redirect_to "/account" 
 
-			 respond_to do |format|
-			 	 if @user.save
+			respond_to do |format|
+			 	if @user.save
 		      format.html { 
 		      	flash[:notice] = "Update Success!"
 		      	redirect_to "/account" 
@@ -55,11 +53,13 @@ class UsersController < ApplicationController
 		      	flash[:error] = "Update Failed!"
 		      	redirect_to "/account" 
 		      }
-		      format.js json => @user.errors
+		      format.js {
+		      	render :json => @user.errors
+		      	#render :action => 'error'
+		      }
 		    end
+		  end
 
-		   end
-		end
 	end
 
 	def signup

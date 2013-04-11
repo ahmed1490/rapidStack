@@ -7,6 +7,8 @@ class RapidFile < ActiveRecord::Base
 	has_many :user_files
 	has_many :users, :through => :user_files
 
+	validates_presence_of :filename
+
 
 
 	mount_uploader :filename, RapidFileUploader

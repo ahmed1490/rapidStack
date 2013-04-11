@@ -18,7 +18,13 @@
 
   <% form_for(:user, :url => {:controller => :users ,:action => action}) do |f| %>
   	<div class="modal-body">
-
+  		<% if @user.present? && @user.errors.size > 0 %>
+	  		<div class="alert alert-error">
+		  		<% @user.errors.each do |attr,msg|  %>
+				 	<%= attr.to_s.capitalize + ' ' + msg%> <br />
+				<% end %>
+			</div>
+  		<% end %>
 	    <div class="span3">
 	       
 	        <label>First Name</label>
